@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //Enter salary
+        //Input salary
         float salary = -1;
 
         while (salary < 0) {
@@ -19,7 +19,7 @@ public class Main {
             }
         }
 
-        //enter AFPmodel
+        //Input AFPmodel
         boolean AFPModelLoop = true;
         String[] AFPModels = {"CAPITAL", "CUPRUM", "HABITAT", "PLANVITAL", "PROVIDA", "MODELO", "UNO"};
 
@@ -36,7 +36,7 @@ public class Main {
             }
         }
 
-        //Enter prevetion type
+        //Input prevetion type
         boolean previtionLoop = true;
         String[] previtionTipes = {"FONASA", "ISAPRE"};
 
@@ -50,7 +50,7 @@ public class Main {
 
                     if (i == 1) {
 
-                        //Enter UF plan if Isapre (i == 1) is selected
+                        //Input UF plan if Isapre (i == 1) is selected
                         float UFplan = -1;
 
                         while (UFplan < 0) {
