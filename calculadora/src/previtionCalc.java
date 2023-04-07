@@ -8,11 +8,11 @@ public class previtionCalc {
     }
 
     public float previtionCalcDiscount() {
-        //objects
+        //objetos
         Scanner scanner = new Scanner(System.in);
         positiveIntegerChecker positiveIntegerChecker = new positiveIntegerChecker();
 
-        //global variables
+        //Variables globales
         float UFPlan = 0;
         float userPrevitionDiscount = 0;
 
@@ -29,8 +29,8 @@ public class previtionCalc {
                 positiveIntegerChecker.setQuestion("Ingrese su plan de salud UF: ");
                 userPrevitionDiscount = positiveIntegerChecker.askInteger();
 
-                //calculate the discount applied to his UFPlan selected
-                float UF = 35568.59f;       //UF value (06/04/2023)
+                //Calcula el descuento aplicado a su UFPlan seleccionado
+                float UF = 35568.59f;       //Valor del UF (06/04/2023)
                 userPrevitionDiscount = this.salary - (UF * UFPlan);
                 break;
             }

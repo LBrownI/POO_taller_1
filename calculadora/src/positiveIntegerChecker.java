@@ -6,12 +6,12 @@ public class positiveIntegerChecker {
     public positiveIntegerChecker(){
     }
 
-    //define the question that would be displayed everytime the user tries to enter a value
+    //Definir la pregunta que se mostraría cada vez que el usuario intente ingresar un valor.
     public void setQuestion (String question){
         this.question = question;
     }
 
-    //ask to the user to enter a positive integer
+    //Pide al usuario que introduzca un número entero positivo.
     public float askInteger (){
         Scanner scanner = new Scanner(System.in);
         float integer = -1;
@@ -20,7 +20,7 @@ public class positiveIntegerChecker {
             System.out.print(question);
             String input = scanner.nextLine();
 
-            //If the input is a string, then repeat the input request until the user enters a positive integer
+            //Si la entrada es una cadena, repite la solicitud de entrada hasta que el usuario ingrese un número entero positivo.
             try {
                 integer = Integer.valueOf(input);
             } catch (NumberFormatException e) {
