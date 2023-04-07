@@ -1,9 +1,9 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        positiveIntegerChecker positiveIntegerChecker = new positiveIntegerChecker();
 
         //Enter salary
         float salary = -1;
@@ -40,45 +40,15 @@ public class Main {
             }
         }
 
-        //Enable loop for prevition request
-        boolean previtionLoop = true;
+        //ask to the user to enter his prevition type (Fonasa or isapre), if it is Isapre, then ask for his UF plan. The class returns the discount based on the user elections.
+        previtionCalc previtionCalc = new previtionCalc(salary);
+        float userPrevitionDiscount = previtionCalc.previtionCalcDiscount();
 
-        //global variables
-        float UFPlan = 0;
-        float userPrevitionPercentage = 0;
+        //ask to the user to enter his gratification if it has.
+        positiveIntegerChecker.setQuestion("Ingrese su gratificación (poner 0 si no tiene): ");
+        float gratification = positiveIntegerChecker.askInteger();
 
-        while (previtionLoop) {
-            System.out.print("Ingrese su tipo de preivisón (Fonasa, Isapre): ");
-            String userPrevition = scanner.nextLine();
-            userPrevition = userPrevition.toUpperCase();
-
-            if (userPrevition.equals("FONASA")) {
-                userPrevitionPercentage = 0.3f;           //example value
-                previtionLoop = false;
-            }
-            if (userPrevition.equals("ISAPRE")) {
-                UFPlan = -1;
-
-                while (UFPlan < 0) {
-                    System.out.print("Ingrese su plan de salud UF: ");
-                    String input = scanner.nextLine();
-
-                    try {
-                        UFPlan = Integer.valueOf(input);
-                    } catch (NumberFormatException e) {
-                        UFPlan = -1;
-                    }
-                }
-                previtionLoop = false;
-            }
-        }
-
-        float gratification = 0;
-        //...
-
-
-        discountSalary finalSalary = new discountSalary(salary, userAFPPercentage, userPrevitionPercentage, UFPlan, gratification);
-        System.out.print(finalSalary.netSalary());
-
+        discountSalary finalSalary = new discountSalary(salary, userAFPPercentage, userPrevitionDiscount, gratification);
+        System.out.print("Su salario final es: " +finalSalary.netSalary());
     }
 }
