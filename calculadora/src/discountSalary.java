@@ -2,13 +2,11 @@ class discountSalary {
     private float salary;
     private float userAFPPercentage;
     private float userPrevitionDiscount;
-    private float gratification;
 
     public discountSalary(float salary, float userAFPModel, float userPrevitionDiscount, float gratification){
-        this.salary = salary;
+        this.salary = salary + gratification;
         this.userAFPPercentage = userAFPModel;
         this.userPrevitionDiscount = userPrevitionDiscount;
-        this.gratification = gratification;
     }
 
     public float netSalary(){

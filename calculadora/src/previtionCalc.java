@@ -2,17 +2,19 @@ import java.util.Scanner;
 
 public class previtionCalc {
     private float salary;
+    private String userPrevition;
+    private float UFPlan;
 
     public previtionCalc(float salary){
         this.salary = salary;
     }
 
     public float previtionCalcDiscount() {
-        //objetos
+        //objects
         Scanner scanner = new Scanner(System.in);
         positiveIntegerChecker positiveIntegerChecker = new positiveIntegerChecker();
 
-        //Variables globales
+        //global variables
         float UFPlan = 0;
         float userPrevitionDiscount = 0;
 
@@ -22,19 +24,29 @@ public class previtionCalc {
             userPrevition = userPrevition.toUpperCase();
 
             if (userPrevition.equals("FONASA")) {
+                this.userPrevition = "Fonasa";
                 userPrevitionDiscount = this.salary * 0.07f;
                 break;
             }
             else if (userPrevition.equals("ISAPRE")) {
+                this.userPrevition = "Isapre";
                 positiveIntegerChecker.setQuestion("Ingrese su plan de salud UF: ");
-                userPrevitionDiscount = positiveIntegerChecker.askInteger();
+                this.UFPlan = positiveIntegerChecker.askInteger();
 
-                //Calcula el descuento aplicado a su UFPlan seleccionado
-                float UF = 35568.59f;       //Valor del UF (06/04/2023)
-                userPrevitionDiscount = this.salary - (UF * UFPlan);
+                //calculate the discount applied to his UFPlan selectd
+                float UF = 35630.06f;       //UF value (06/04/2023)
+                userPrevitionDiscount = (UF * this.UFPlan);
                 break;
             }
         }
         return (userPrevitionDiscount);
+    }
+
+    public String getUserPrevition() {
+        return userPrevition;
+    }
+
+    public float getUFPlan() {
+        return UFPlan;
     }
 }
