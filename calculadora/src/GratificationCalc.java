@@ -20,9 +20,13 @@ public class GratificationCalc {
     /**
      * pregunta al usuario si tiene gratifiacion. En caso de tenerla, se le calcula respecto a su salario ingresado.
      * @return gratificación correspondiente a lo elegido por el usuario
+     * <li>En caso de haber elegido "si":  </li>
+     *     <ul><li>si el salario es menor que 649166$, devuelve salario * 25%</li></ul>
+     *     <ul><li>si el salario es mayor que 649166$, devuelve 162292$</li></ul>
      * <li>En caso de haber elegido "no", la gratificación devuelve 0</li>
+     * <li>En caso de haber elegido "otro", la gratificación devuelve el valor ingresado</li>
      */
-    public float getUserGratification() {
+    public int getUserGratification() {
         Scanner scanner = new Scanner(System.in);
         positiveIntegerChecker positiveIntegerChecker = new positiveIntegerChecker();
 
@@ -49,7 +53,7 @@ public class GratificationCalc {
                 break;
             }
         }
-        return this.userGratification;
+        return Math.round(this.userGratification);
 
     }
 

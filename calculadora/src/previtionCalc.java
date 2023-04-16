@@ -20,8 +20,10 @@ import java.util.Scanner;
      * pregunta al usuario por su tipo de prevision.
      * Si no elige una de las opciones (Fonasa o Isapre), se le preguntará denuevo.
      * @return devuelve el salario del usuario con su correspondiente descuento aplicado
+     * <li>En caso de haber elegido "Fonasa", devuelve salario * 7%</li>
+     * <li>En caso de haber elegido "Isapre", devuelve el valor de un UF (15/04/2023) * el plan UF ingresado por el usuario</li>
      */
-    public float previtionCalcDiscount() {
+    public int previtionCalcDiscount() {
 
         Scanner scanner = new Scanner(System.in);
         positiveIntegerChecker positiveIntegerChecker = new positiveIntegerChecker();
@@ -52,7 +54,7 @@ import java.util.Scanner;
                 break;
             }
         }
-        return (userPrevitionDiscount);
+        return Math.round(userPrevitionDiscount);
     }
 
     /**

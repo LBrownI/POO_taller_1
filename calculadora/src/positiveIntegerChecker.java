@@ -19,9 +19,9 @@ public class positiveIntegerChecker {
      * Si ingresa un valor negativo o un texto, se repetirá hasta que ingrese un valor correcto.
      * @return un número entero ingresado por el usuario
      */
-    public float askInteger (){
+    public int askInteger (){
         Scanner scanner = new Scanner(System.in);
-        float integer = -1;
+        int integer = -1;
 
         while (integer < 0) {
             System.out.print(question);
