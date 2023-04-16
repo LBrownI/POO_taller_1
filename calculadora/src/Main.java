@@ -36,7 +36,7 @@ public class Main {
         int userPrevitionDiscount = previtionCalc.previtionCalcDiscount();
 
         /*
-         * Muestra un resumen de las elecciones del usuario, junto con el decuento aplicado por cada categoria y el salario líquido
+         * Muestra un resumen de las elecciones del usuario, el decuento aplicado por cada categoria y el salario líquido
          */
         System.out.println("============================================");
         System.out.println("Resumen: \n");
