@@ -1,27 +1,37 @@
-import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
         positiveIntegerChecker positiveIntegerChecker = new positiveIntegerChecker();
 
-        salaryCalc sCalc = new salaryCalc();  // Crear una instancia de la clase salaryCalc
-        float salary = sCalc.getSalary();     // Llamar al método getSalary() para obtener el salario
+        /*
+         * LLama a la clase positiveIntegerCheker para obtener el salario del usuario
+         */
+        positiveIntegerChecker.setQuestion("Ingrese su sueldo bruto: ");
+        float salary = positiveIntegerChecker.askInteger();
 
-        //ask to the user to enter his gratification if it has.
+        /*
+         * Llama a la clase GratificationCacl para obtener la gratificación del usuario. Después sumarla con el salario
+         */
         GratificationCalc gratificationCalc = new GratificationCalc(salary);
         int gratification = (int) gratificationCalc.getUserGratification();
         salary = salary + gratification;
 
-        AFPcalc afpCalc = new AFPcalc(salary);      // Crear una instancia de la clase AFPcalc
-        afpCalc.selectAFPModel();   // Llamar al método selectAFPModel() para permitir que el usuario seleccione su modelo de AFP
-        int userAFPDiscount = afpCalc.getUserAFPDiscount();   // Llamar al método getUserAFPPercentage() para obtener el porcentaje de AFP del usuario
+        /*
+         * Llama a la clase AFPcalc para obtener el modelo de AFP del usuario, además de calcular el descuento
+         */
+        AFPcalc afpCalc = new AFPcalc(salary);
+        afpCalc.selectAFPModel();
+        int userAFPDiscount = (afpCalc.getUserAFPDiscount());
 
-        //Solicita a el usuario que ingrese su tipo de previsión (Fonasa o isapre), si es Isapre, solicitar su plan de UF. La clase devuelve el descuento en función de las elecciones del usuario.
+        /*
+         * LLama a la clase previtionCalc para obtener el tipo de previsión del usuario, además de calcular el descuento
+         */
         previtionCalc previtionCalc = new previtionCalc(salary);
         int userPrevitionDiscount = (int) previtionCalc.previtionCalcDiscount();
 
-
+        /*
+         * Muestra un resumen de las elecciones del usuario, junto con el decuento aplicado por cada categoria
+         */
         System.out.println("============================================");
         System.out.println("Resumen: \n");
         System.out.printf("- Gratifiación (%s): +%d$\n", gratificationCalc.getUserGratificationElection(), gratification);
@@ -34,7 +44,7 @@ public class Main {
         }
 
         int finalSalary = Math.round(salary - userAFPDiscount - userPrevitionDiscount);
-        System.out.printf("\nEl sueldo líquido es: %d\n", finalSalary);
+        System.out.printf("\nSu sueldo líquido es: %d$\n", finalSalary);
         System.out.println("============================================");
     }
 }

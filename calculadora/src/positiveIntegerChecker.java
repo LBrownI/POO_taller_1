@@ -1,14 +1,24 @@
 import java.util.Scanner;
 
+/**
+ * Fuerza al usuario a que ingrese un número entero positivo
+ */
 public class positiveIntegerChecker {
     private String question;
 
-    //define the question that would be displayed everytime the user tries to enter a value
+    /**
+     * define la pregunta que será mostrada cada vez que el usuario ingrese un valor por teclado
+     * @param question pregunta que será mostrada
+     */
     public void setQuestion (String question){
         this.question = question;
     }
 
-    //ask to the user to enter a positive integer
+    /**
+     * pregunta al usuario por un entero positivo.
+     * Si ingresa un valor negativo o un texto, se repetirá hasta que ingrese un valor correcto.
+     * @return un número entero ingresado por el usuario
+     */
     public float askInteger (){
         Scanner scanner = new Scanner(System.in);
         float integer = -1;
@@ -17,7 +27,9 @@ public class positiveIntegerChecker {
             System.out.print(question);
             String input = scanner.nextLine();
 
-            //If the input is a string, then repeat the input request until the user enters a positive integer
+            /*
+             * Si el valor ingresado es un String, entonces volver a pregunar al usuario para ingresar otro valor
+             */
             try {
                 integer = Integer.valueOf(input);
             } catch (NumberFormatException e) {

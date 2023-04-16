@@ -1,20 +1,34 @@
 import java.util.Scanner;
 
-public class previtionCalc {
+/**
+ * Pregunta al usuario su tipo de previsión y la calcula respecto al salario ingresado
+ */
+ public class previtionCalc {
     private float salary;
     private String userPrevition;
     private float UFPlan;
 
+    /**
+     * Guarda el valor del salario ingresado por el usuario
+     * @param salary salario ingresado por la persona
+     */
     public previtionCalc(float salary){
         this.salary = salary;
     }
 
+    /**
+     * pregunta al usuario por su tipo de prevision.
+     * Si no elige una de las opciones (Fonasa o Isapre), se le preguntará denuevo.
+     * @return devuelve el salario del usuario con su correspondiente descuento aplicado
+     */
     public float previtionCalcDiscount() {
-        //objects
+
         Scanner scanner = new Scanner(System.in);
         positiveIntegerChecker positiveIntegerChecker = new positiveIntegerChecker();
 
-        //global variables
+        /*
+        variables globales
+         */
         float UFPlan = 0;
         float userPrevitionDiscount = 0;
 
@@ -33,8 +47,7 @@ public class previtionCalc {
                 positiveIntegerChecker.setQuestion("Ingrese su plan de salud UF: ");
                 this.UFPlan = positiveIntegerChecker.askInteger();
 
-                //calculate the discount applied to his UFPlan selectd
-                float UF = 35630.06f;       //UF value (06/04/2023)
+                float UF = 35643.05f;       //valor de un UF (15/04/2023)
                 userPrevitionDiscount = (UF * this.UFPlan);
                 break;
             }
@@ -42,10 +55,16 @@ public class previtionCalc {
         return (userPrevitionDiscount);
     }
 
+    /**
+     * @return devuelve la prevision elegida por el usuario
+     */
     public String getUserPrevition() {
         return userPrevition;
     }
 
+    /**
+     * @return devuelve el plan UF del usuario
+     */
     public float getUFPlan() {
         return UFPlan;
     }
