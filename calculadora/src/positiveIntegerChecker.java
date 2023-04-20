@@ -27,7 +27,7 @@ public class positiveIntegerChecker {
             System.out.print(question);
             String input = scanner.nextLine();
 
-            /*
+            /**
              * Si el valor ingresado es un String, entonces volver a pregunar al usuario para ingresar otro valor
              */
             try {

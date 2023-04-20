@@ -28,7 +28,7 @@ import java.util.Scanner;
         Scanner scanner = new Scanner(System.in);
         positiveIntegerChecker positiveIntegerChecker = new positiveIntegerChecker();
 
-        /*
+        /**
         variables globales
          */
         float UFPlan = 0;

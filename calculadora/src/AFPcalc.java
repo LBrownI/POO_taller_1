@@ -31,7 +31,7 @@ public class AFPcalc {
             String userAFPModel = scanner.nextLine();
             userAFPModel = userAFPModel.toUpperCase();
 
-            /*
+            /**
              * compureba si la entrada del usuario se encuentra en la lista de modelos de AFP.
              * Si se encuentra, entonces se le establece su porcentaje correspondiente y sale del bucle.
              */
